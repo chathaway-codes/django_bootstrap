@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='django_bootstrap',
-    version='2.3.1',
+    version='3.0.0-wip',
     author=u'Charles Hathaway',
     author_email='chathaway@logrit.com',
     packages=['django_bootstrap', 'django_bootstrap.templatetags'],
