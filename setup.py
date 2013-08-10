@@ -1,15 +1,32 @@
-# -*- coding: utf-8 -*-
-from distutils.core import setup
+
+import os, sys
+
+try:
+    from setuptools import setup
+except:
+    from distutils.core import setup
+
+# Utility function to read the README file.
+# Used for the long_description.  It's nice, because now 1) we have a top level
+# README file and 2) it's easier to type in the README file than to put a raw
+# string in below ...
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+def read_requirements(fname):
+    f = open(os.path.join(os.path.dirname(__file__), fname))
+    return filter(lambda f: f != '', map(lambda f: f.strip(), f.readlines()))
 
 setup(
-    name='django_bootstrap',
-    version='3.0.0-wip',
-    author=u'Charles Hathaway',
-    author_email='chathaway@logrit.com',
-    packages=['django_bootstrap', 'django_bootstrap.templatetags'],
-    url='https://github.com/chuck211991/django_boostrap',
-    license='BSD licence, see LICENCE.txt',
-    description='Very Django app that containts the static Bootstrap files in static/{css,js}',
-    zip_safe=False,
-    include_package_data=True,
+    zip_safe = False,
+    name = "django-bootstrap-static-files",
+    version = "3.0.0-wip",
+    author = "Charles Hathaway",
+    author_email = "chathaway@logrit.com",
+    description = "This package provides the Bootstrap files in a simple Django app.",
+    keywords = "django bootstrap static files",
+    packages=['bootstrap_static_files', 'bootstrap_static_files.templatetags'],
+    long_description=read('README.md'),
+    install_requires = read_requirements('libraries.txt'),
+    test_suite = "dummy",
 )
