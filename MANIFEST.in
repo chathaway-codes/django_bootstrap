@@ -1,1 +1,1 @@
-recursive-include django_bootstrap/static *
+recursive-include bootstrap_static_files/static *
